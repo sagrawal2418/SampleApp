@@ -6,12 +6,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sample.practiceapp.UiState
 import com.sample.practiceapp.model.TodoItem
-import com.sample.practiceapp.model.User
 import com.sample.practiceapp.repository.TypiCodeRepository
 import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import retrofit2.Response

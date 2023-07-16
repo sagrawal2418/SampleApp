@@ -2,6 +2,7 @@ package com.sample
 
 import android.app.Application
 import com.sample.practiceapp.network.RetrofitInstance
+import com.sample.practiceapp.repository.TypiCodeRepository
 import com.sample.practiceapp.repository.TypiCodeRepositoryImpl
 import com.sample.practiceapp.viewmodel.ToDoViewModel
 import com.sample.practiceapp.viewmodel.UserViewModel
@@ -12,11 +13,14 @@ import org.koin.dsl.module
 
 class PracticeApplication : Application() {
 
-    var listOfModules = module {
+    private var listOfModules = module {
+
         single { RetrofitInstance.api }
-        single { TypiCodeRepositoryImpl(get()) }
+        single<TypiCodeRepository> { TypiCodeRepositoryImpl(get()) }
+
         viewModel { ToDoViewModel(get()) }
         viewModel { UserViewModel(get()) }
+
     }
 
     override fun onCreate() {

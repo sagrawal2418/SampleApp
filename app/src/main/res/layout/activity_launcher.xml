@@ -35,6 +35,16 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/btntoDos" />
 
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnPhotos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/photos"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnUsers" />
+
+
         </androidx.appcompat.widget.LinearLayoutCompat>
     </ScrollView>
 

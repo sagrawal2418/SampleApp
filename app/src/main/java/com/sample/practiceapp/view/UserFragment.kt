@@ -9,19 +9,13 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sample.practiceapp.UiState
 import com.sample.practiceapp.adapter.UserAdapter
-import com.sample.practiceapp.databinding.UserFragmentBinding
+import com.sample.practiceapp.databinding.FragmentUserBinding
 import com.sample.practiceapp.viewmodel.UserViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-/**
- * A simple [Fragment] subclass.
- * Use the [UserDetailFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-
 class UserFragment : Fragment() {
 
-    private lateinit var binding: UserFragmentBinding
+    private lateinit var binding: FragmentUserBinding
     private lateinit var userAdapter: UserAdapter
 
     override fun onCreateView(
@@ -29,7 +23,7 @@ class UserFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
-        binding = UserFragmentBinding.inflate(inflater, container, false)
+        binding = FragmentUserBinding.inflate(inflater, container, false)
         return binding.root
     }
 

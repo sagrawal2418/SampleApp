@@ -35,5 +35,14 @@ class LauncherActivity : AppCompatActivity() {
             transaction.commit()
         }
 
+        binding.btnPhotos.setOnClickListener {
+
+            val manager: FragmentManager = supportFragmentManager
+            val transaction: FragmentTransaction = manager.beginTransaction()
+            transaction.replace(R.id.container, PhotoFragment(), "PHOTO_FRAGMENT")
+            transaction.addToBackStack(null)
+            transaction.commit()
+        }
+
     }
 }

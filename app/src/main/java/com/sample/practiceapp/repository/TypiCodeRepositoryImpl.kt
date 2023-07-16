@@ -1,5 +1,6 @@
 package com.sample.practiceapp.repository
 
+import com.sample.practiceapp.model.Photo
 import com.sample.practiceapp.model.TodoItem
 import com.sample.practiceapp.model.User
 import com.sample.practiceapp.network.TypiCodeApi
@@ -13,6 +14,10 @@ class TypiCodeRepositoryImpl(private val api: TypiCodeApi) : TypiCodeRepository 
 
     override suspend fun getUsers(): Response<List<User>> {
         return api.getUsers()
+    }
+
+    override suspend fun getPhotos(): Response<List<Photo>> {
+        return api.getPhotos()
     }
 
 }

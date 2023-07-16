@@ -8,25 +8,18 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sample.practiceapp.UiState
-import com.sample.practiceapp.adapter.ToDoAdapter
+import com.sample.practiceapp.adapter.PhotoAdapter
 import com.sample.practiceapp.databinding.FragmentUserBinding
-import com.sample.practiceapp.viewmodel.ToDoViewModel
+import com.sample.practiceapp.viewmodel.PhotoViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-/**
- * A simple [Fragment] subclass.
- * Use the [ToDoFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+class PhotoFragment : Fragment() {
 
-class ToDoFragment : Fragment() {
-
-    private lateinit var toDoAdapter: ToDoAdapter
     private lateinit var binding: FragmentUserBinding
+    private lateinit var userAdapter: PhotoAdapter
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
@@ -37,17 +30,17 @@ class ToDoFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val viewModel: PhotoViewModel by viewModel()
 
-        val viewModel: ToDoViewModel by viewModel()
         viewModel.itemState.observe(viewLifecycleOwner) {
             when (it) {
                 is UiState.Success -> {
                     binding.progressBar.visibility = View.GONE
                     // Create adapter passing in the sample user data
-                    toDoAdapter = ToDoAdapter(it.data)
-                    toDoAdapter.notifyDataSetChanged()
+                    userAdapter = PhotoAdapter(it.data)
+                    userAdapter.notifyDataSetChanged()
                     // Attach the adapter to the recyclerview to populate items
-                    binding.rvTodos.adapter = toDoAdapter
+                    binding.rvTodos.adapter = userAdapter
                     // Set layout manager to position the items
                     binding.rvTodos.layoutManager = LinearLayoutManager(context)
                     // That's all!
@@ -66,7 +59,6 @@ class ToDoFragment : Fragment() {
                 }
             }
         }
-        viewModel.getToDos()
+        viewModel.getPhotos()
     }
-
 }
